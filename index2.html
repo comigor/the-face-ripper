@@ -62,13 +62,15 @@
       </style>
 
       <script>
-	document.querySelector('body').addEventListener('click', function() {
-	  var a = new Audio('/meow.wav');
-	  a.play();
-	});
+        function inject() {
+		document.querySelector('body').addEventListener('click', function() {
+		  var a = new Audio('/meow.wav');
+		  a.play();
+		});
+	}
       </script>
   </head>
-  <body style="background-color:black">
+  <body onload="inject()">
     <!--div id="cf">
       <img class="bottom" src="img/faceripper2.png" />
       <img class="top" src="img/faceripper1.png" />
