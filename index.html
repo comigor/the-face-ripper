@@ -65,10 +65,10 @@
           scene = new THREE.Scene();
           scene.fog = new THREE.FogExp2( 0x000000, 0.001 );
 
-	  const loader = new THREE.TextureLoader();
-          loader.load('https://thefaceripper.com/img/faceripper1.png', function(texture) {
-            scene.background = texture;  
-          });
+// 	  const loader = new THREE.TextureLoader();
+//           loader.load('https://thefaceripper.com/img/faceripper1.png', function(texture) {
+//             scene.background = texture;  
+//           });
 
           const geometry = new THREE.BufferGeometry();
           const vertices = [];
@@ -95,7 +95,9 @@
 
           //
 
-          renderer = new THREE.WebGLRenderer();
+          renderer = new THREE.WebGLRenderer({ antialias: false,alpha:true });
+	  renderer.setSize( window.innerWidth, window.innerHeight );
+	  renderer.setClearColor(0x000000, 0);
           renderer.setPixelRatio( window.devicePixelRatio );
           renderer.setSize( window.innerWidth, window.innerHeight );
           document.body.appendChild( renderer.domElement );
