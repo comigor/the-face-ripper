@@ -28,9 +28,10 @@
 	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
       <style>
         body {
-	    background-repeat:no-repeat;
+	    background-color: black;
+	    background-repeat: no-repeat;
 	    background-position: center center;
-	    background-image:url(/img/faceripper1.png);
+	    background-image: url(/img/faceripper1.png);
         }
 
         #cf img.top:hover {
@@ -63,6 +64,11 @@
 
           scene = new THREE.Scene();
           scene.fog = new THREE.FogExp2( 0x000000, 0.001 );
+
+	  const loader = new THREE.TextureLoader();
+          loader.load('https://thefaceripper.com/img/faceripper1.png', function(texture) {
+            scene.background = texture;  
+          });
 
           const geometry = new THREE.BufferGeometry();
           const vertices = [];
