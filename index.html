@@ -67,8 +67,21 @@
           scene = new THREE.Scene();
           scene.fog = new THREE.FogExp2( 0x000000, 0.001 );
 		
+	// -------------------------------------------
           const backgroundTexture = new THREE.TextureLoader().load( '/img/faceripper1.png' );
- 	  scene.background = backgroundTexture;  
+//  	  scene.background = backgroundTexture;
+		
+	material = new THREE.MeshLambertMaterial({ map : backgroundTexture });
+	plane = new THREE.Mesh(new THREE.PlaneGeometry(1102, 1026), material);
+	plane.material.side = THREE.DoubleSide;
+	plane.position.z = 1000;
+
+	// rotation.z is rotation around the z-axis, measured in radians (rather than degrees)
+	// Math.PI = 180 degrees, Math.PI / 2 = 90 degrees, etc.
+// 	plane.rotation.z = Math.PI / 2;
+
+	scene.add(plane);
+	// -------------------------------------------
 
           const geometry = new THREE.BufferGeometry();
           const vertices = [];
