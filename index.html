@@ -170,6 +170,8 @@ li span {
             if (xmlhttp.readyState==4) {
                 TimeDiff=new Date(xmlhttp.getResponseHeader("Date")) - 
                                 (new Date()) + ((new Date()) - StartTime) / 2;
+		    
+		    console.log('diff: ' + TimeDiff);
         
                 if (++RetryCount < 3 && (new Date()) - StartTime > AcceptedDelay) {
                    SyncTime();
@@ -186,6 +188,7 @@ li span {
 
     function ServerTime(){
         var diff = parseInt(window.localStorage.getItem(TimeDiffKey), 10);
+	    console.log('now: ' + new Date(Date.now() + diff));
         return new Date(Date.now() + diff);
     }
 		
@@ -204,7 +207,6 @@ li span {
           document.getElementById("hours").innerText = ('0' + Math.floor((distance % (day)) / (hour))).slice(-2),
           document.getElementById("minutes").innerText = ('0' + Math.floor((distance % (hour)) / (minute))).slice(-2),
           document.getElementById("seconds").innerText = ('0' + Math.floor((distance % (minute)) / second)).slice(-2);
-	      document.getElementById("headline").innerText = now;
 
         //do something later when date is reached
         if (distance < 2) {
