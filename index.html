@@ -55,7 +55,7 @@
       <script type="module">
         import * as THREE from 'https://threejs.org/build/three.module.js';
 
-        let camera, scene, renderer, stats, material;
+        let camera, scene, renderer, material;
         let mouseX = 0, mouseY = 0;
 
         let windowHalfX = window.innerWidth / 2;
@@ -141,7 +141,6 @@
           requestAnimationFrame( animate );
 
           render();
-          stats.update();
 
         }
 
