@@ -68,11 +68,11 @@
           scene.fog = new THREE.FogExp2( 0x000000, 0.001 );
 		
 	// -------------------------------------------
-          const backgroundTexture = new THREE.TextureLoader().load( '/img/faceripper1.png' );
+          const backgroundTexture = new THREE.TextureLoader().load( '/img/faceripper1_trans.png' );
 //  	  scene.background = backgroundTexture;
 
-	var material = new THREE.MeshLambertMaterial({ map: backgroundTexture });
-	var plane = new THREE.Mesh(new THREE.PlaneGeometry(1102, 1026), material);
+	var material2 = new THREE.MeshLambertMaterial({ map: backgroundTexture });
+	var plane = new THREE.Mesh(new THREE.PlaneGeometry(1102, 1026), material2);
 	plane.material.side = THREE.DoubleSide;
 	plane.position.z = 1000;
 
