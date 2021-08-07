@@ -23,7 +23,9 @@
 	<meta name="msapplication-TileImage" content="/img/face-ripper-144.png">
 	<meta name="msapplication-config" content="/img/browserconfig.xml">
 	<!-- ****** faviconit.com favicons ****** -->
-      <title>THE FACE RIPPER</title>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
       <style>
         #cf img {
           -webkit-transition: opacity 1s ease-in-out;
@@ -43,7 +45,13 @@
           opacity:0;
         }
       </style>
-    
+  </head>
+  <body style="background-color:black">
+    <div id="cf">
+      <img class="bottom" src="img/faceripper2.png" />
+      <img class="top" src="img/faceripper1.png" />
+    </div>
+
       <script type="module">
         import * as THREE from 'https://threejs.org/build/three.module.js';
 
@@ -152,12 +160,6 @@
           renderer.render( scene, camera );
 
         }
-		</script>
-  </head>
-  <body style="background-color:black">
-    <div id="cf">
-      <img class="bottom" src="img/faceripper2.png" />
-      <img class="top" src="img/faceripper1.png" />
-    </div>
+    </script>
   </body>
 </html>
