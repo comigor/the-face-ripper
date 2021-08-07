@@ -68,12 +68,13 @@
           scene.fog = new THREE.FogExp2( 0x000000, 0.001 );
 		
 	// -------------------------------------------
-        var backgroundTexture = new THREE.TextureLoader().load( '/img/faceripper1_trans.png' );
+        var backgroundTexture = new THREE.TextureLoader().load( '/img/faceripper1_trans_eye.png' );
 	var material2 = new THREE.SpriteMaterial( { map: backgroundTexture, color: 0xffffff } );
 	var sprite2 = new THREE.Sprite( material2 );
 	scene.add( sprite2 );
-	sprite2.scale.set(1102, 1026,1);
-	sprite2.position.z = 1000;
+// 	sprite2.scale.set(1102, 1026,1);
+	sprite2.scale.set(881, 820, 1);
+	sprite2.position.z = 200;
 
 	// rotation.z is rotation around the z-axis, measured in radians (rather than degrees)
 	// Math.PI = 180 degrees, Math.PI / 2 = 90 degrees, etc.
