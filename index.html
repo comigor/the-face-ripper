@@ -139,6 +139,55 @@ li span {
 
 	<script>
 (function () {
+
+    var SyncTimeframe = 1000 * 60 * 60 * 3; // 3 Hours
+    var LastSyncKey = 'LastSyncWithTimeServer';
+    var TimeDiffKey = 'Local-Server-TimeDiff';
+
+    var RetryMax = 3;
+    var RetryCount = 0;
+    var AcceptedDelay = 500;
+
+    if (window.localStorage.getItem(LastSyncKey) == null) {
+        window.localStorage.setItem(LastSyncKey, '' + (new Date(0)));
+    }
+
+    LastSync = new Date(window.localStorage.getItem(LastSyncKey));
+
+    if ( Math.abs((new Date()) - LastSync) > SyncTimeframe) {
+        SyncTime();
+    }
+
+    function SyncTime() {
+        var StartTime = new Date();
+
+        xmlhttp = new XMLHttpRequest();
+        xmlhttp.open("HEAD", "https://www.googleapis.com",true);
+        xmlhttp.onreadystatechange=function() {
+    
+            if (xmlhttp.readyState==4) {
+                TimeDiff=new Date(xmlhttp.getResponseHeader("Date")) - 
+                                (new Date()) + ((new Date()) - StartTime) / 2;
+        
+                if (++RetryCount < 3 && (new Date()) - StartTime > AcceptedDelay) {
+                   SyncTime();
+                }
+                else {
+                    window.localStorage.setItem(LastSyncKey, '' + (new Date()));
+                    window.localStorage.setItem(TimeDiffKey, TimeDiff);
+                }
+            }
+        }
+        xmlhttp.send(null);
+    }
+})();
+
+    function ServerTime(){
+        var diff = parseInt(window.localStorage.getItem(TimeDiffKey), 10);
+        return new Date(Date.now() + diff);
+    }
+		
+(function () {
   const second = 1000,
         minute = second * 60,
         hour = minute * 60,
@@ -148,7 +197,7 @@ li span {
       countDown = new Date(birthday).getTime(),
       x = setInterval(function() {    
 
-        let now = new Date().getTime(),
+        let now = ServerTime().getTime(),
             distance = countDown - now;
 
           document.getElementById("hours").innerText = Math.floor((distance % (day)) / (hour)),
