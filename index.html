@@ -70,9 +70,9 @@
 	// -------------------------------------------
           const backgroundTexture = new THREE.TextureLoader().load( '/img/faceripper1.png' );
 //  	  scene.background = backgroundTexture;
-		
-	material = new THREE.MeshLambertMaterial({ map : backgroundTexture });
-	plane = new THREE.Mesh(new THREE.PlaneGeometry(1102, 1026), material);
+
+	var material = new THREE.MeshLambertMaterial({ map: backgroundTexture });
+	var plane = new THREE.Mesh(new THREE.PlaneGeometry(1102, 1026), material);
 	plane.material.side = THREE.DoubleSide;
 	plane.position.z = 1000;
 
