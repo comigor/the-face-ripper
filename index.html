@@ -157,13 +157,7 @@ li span {
 
         //do something later when date is reached
         if (distance < 0) {
-          let headline = document.getElementById("headline"),
-              countdown = document.getElementById("countdown"),
-              content = document.getElementById("content");
-
-          headline.innerText = "THE FACE RIPPER";
-          countdown.style.display = "none";
-          content.style.display = "block";
+          window.location.replace("https://thefaceripper.com/index2.html");
 
           clearInterval(x);
         }
