@@ -23,11 +23,7 @@
       </style>
     
       <script type="module">
-        import * as THREE from '../build/three.module.js';
-
-        import Stats from './jsm/libs/stats.module.js';
-
-        import { GUI } from './jsm/libs/dat.gui.module.js';
+        import * as THREE from 'https://threejs.org/build/three.module.js';
 
         let camera, scene, renderer, stats, material;
         let mouseX = 0, mouseY = 0;
@@ -75,23 +71,6 @@
           renderer.setPixelRatio( window.devicePixelRatio );
           renderer.setSize( window.innerWidth, window.innerHeight );
           document.body.appendChild( renderer.domElement );
-
-          //
-
-          stats = new Stats();
-          document.body.appendChild( stats.dom );
-
-          //
-
-          const gui = new GUI();
-
-          gui.add( material, 'sizeAttenuation' ).onChange( function () {
-
-            material.needsUpdate = true;
-
-          } );
-
-          gui.open();
 
           //
 
