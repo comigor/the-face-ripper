@@ -144,8 +144,7 @@ li span {
         hour = minute * 60,
         day = hour * 24;
 
-//   let birthday = "Aug 7, 2021 21:00:00",
-  let birthday = "Aug 7, 2021 03:20:00",
+  let birthday = "Aug 7, 2021 21:00:00",
       countDown = new Date(birthday).getTime(),
       x = setInterval(function() {    
 
@@ -157,7 +156,7 @@ li span {
           document.getElementById("seconds").innerText = Math.floor((distance % (minute)) / second);
 
         //do something later when date is reached
-        if (distance < 0) {
+        if (distance < 2) {
           window.location.replace("https://thefaceripper.com/index2.html");
 
           clearInterval(x);
