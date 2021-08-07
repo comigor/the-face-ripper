@@ -100,10 +100,11 @@
 
           geometry.setAttribute( 'position', new THREE.Float32BufferAttribute( vertices, 3 ) );
 
-          material = new THREE.PointsMaterial( { size: 35, sizeAttenuation: true, map: sprite, alphaTest: 0.5, transparent: true } );
+          material = new THREE.PointsMaterial( { size: 30, sizeAttenuation: true, map: sprite, alphaTest: 0.5, transparent: true } );
           material.color.setHSL( 0, 1, 0.5 );
 
           const particles = new THREE.Points( geometry, material );
+	particles.position.z = -300;
           scene.add( particles );
 
           //
