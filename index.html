@@ -144,7 +144,7 @@ li span {
 		
 (function () {
 
-    var SyncTimeframe = 1000 * 60 * 60 * 3; // 3 Hours
+    var SyncTimeframe = 1000 * 60 * 3; // 3 minutes
 
     var RetryMax = 3;
     var RetryCount = 0;
@@ -188,7 +188,6 @@ li span {
 
     function ServerTime(){
         var diff = parseInt(window.localStorage.getItem(TimeDiffKey), 10);
-	    console.log('now: ' + new Date(Date.now() + diff));
         return new Date(Date.now() + diff);
     }
 		
